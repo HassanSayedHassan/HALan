@@ -11,7 +11,7 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 /**
- * Created by signo on 14/05/2016.
+ * Created by signo on 14/05/2016. SALVATORE
  * Classe che stampa la pagina della partita corrente
  */
 public class PaginaPartita {
