@@ -15,7 +15,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Partita"></activity>
+        <activity android:name=".Partita" />
+        <activity android:name=".SelezionaLivello"></activity>
     </application>
 
 </manifest>
