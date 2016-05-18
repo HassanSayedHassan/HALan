@@ -10,5 +10,11 @@ public class SelezionaLivello extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seleziona_livello);
 
+        //elimino la barra superiore
+        getSupportActionBar().hide();
+
+
+
+
     }
 }
