@@ -1,0 +1,19 @@
+<resources>
+    <!-- ##########GENERALE########################## -->
+    <string name="app_name">HALan</string>
+    <string name="livello_raggiunto">1</string>
+    <!-- ##########./GENERALE########################## -->
+
+    <!-- ##########MENU INIZIALE########################## -->
+    <string name="primo_avvio">1</string>
+    <string name="nuova_partita">Nuova Partita</string>
+    <string name="seleziona_livello">Seleziona Livello</string>
+    <string name="opzioni">Opzioni</string>
+    <!-- ##########./MENU INIZIALE########################## -->
+
+    <!-- ##########PARTITA########################## -->
+
+    <string name="reset">reset</string>
+    <string name="invia">invia</string>
+    <!-- ##########./PARTITA########################## -->
+</resources>
