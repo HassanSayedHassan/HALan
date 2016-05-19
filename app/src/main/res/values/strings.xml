@@ -16,4 +16,9 @@
     <string name="reset">reset</string>
     <string name="invia">invia</string>
     <!-- ##########./PARTITA########################## -->
+
+    <!-- ##########SELEZIONA LIVELLO########################## -->
+
+    <string name="selezionaLivelloTitolo">Seleziona un livello</string>
+    <!-- ##########./SELEZIONA LIVELLO########################## -->
 </resources>
