@@ -12,19 +12,23 @@ public class GestoreLivello {
     /*
         metodo che restituisce un oggetto che descrive il livello
      */
-    public DescrittoreLivello leggiLivello(Context context,int livello){
 
-        DescrittoreLivello descrittore = new DescrittoreLivello();
-        /*
-        #############################DATABASE#######################################################
-         */
+    private DescrittoreLivello descrittore;
+    private LivelliDbHelper mDbHelper;
+    private Context context;
+    private SQLiteDatabase db;
 
-        LivelliDbHelper mDbHelper = new LivelliDbHelper(context);
-        // Gets the data repository in write mode
+    GestoreLivello(Context context){
 
-        SQLiteDatabase db = mDbHelper.getReadableDatabase();
+        descrittore = new DescrittoreLivello();
+        mDbHelper = new LivelliDbHelper(context);
+        this.context = context;
+        db = mDbHelper.getReadableDatabase();
 
+    }
+    public DescrittoreLivello leggiLivello(int livello){
 
+        //LEGGO IL LIVELLO DAL DATABASE
         String[] colonne_res = {
                 LivelliContratto.Livelli._ID,
                 LivelliContratto.Livelli.COLONNA_ESPOSTO,
@@ -33,8 +37,7 @@ public class GestoreLivello {
         };
 
         // How you want the results sorted in the resulting Cursor
-        String ordina =
-                LivelliContratto.Livelli._ID + " DESC";
+        String ordina = LivelliContratto.Livelli._ID + " DESC";
 
         Cursor c = db.query(
                 LivelliContratto.Livelli.TABELLA_NOME,    // tabella
@@ -62,5 +65,18 @@ public class GestoreLivello {
 
         return(descrittore);
     }
+    //restituisce il numero totale di livelli presenti nel database
+    int getNumeroLivelli(){
+
+        Cursor c = db.rawQuery("SELECT "+LivelliContratto.Livelli._ID+" FROM "+LivelliContratto.Livelli.TABELLA_NOME+" ORDER BY "+LivelliContratto.Livelli._ID+" DESC LIMIT 0,1",null);
+
+        c.moveToFirst();
+        int livelli = c.getInt(c.getColumnIndexOrThrow(LivelliContratto.Livelli._ID));
+
+        return(livelli);
+
+
+    }
+
 
 }
