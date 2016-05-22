@@ -18,6 +18,7 @@ public class Menu extends AppCompatActivity {
 
     private SharedPreferences sharedPref;
     private int livelloRaggiunto;
+    String primoAvvio;
 
 
 
@@ -34,13 +35,16 @@ public class Menu extends AppCompatActivity {
 
 
         Context context = this;
-        SharedPreferences sharedPref = context.getSharedPreferences(getString(R.string.primo_avvio), Context.MODE_PRIVATE);
 
-        int defaultValue = 1;
-        int primoAvvio = sharedPref.getInt(getString(R.string.primo_avvio), defaultValue);
+
+        sharedPref = getSharedPreferences("preferenze",MODE_PRIVATE);
+        primoAvvio = sharedPref.getString("primoAvvio","1");
+        livelloRaggiunto = sharedPref.getInt("livelloRaggiunto",1);
+
+        Log.w("primo avvio",primoAvvio);
 
         //SOLO SE è IL PRIMO AVVIO CARICO IL DATABASE CON I LIVELLI
-        if(primoAvvio == 1){
+        if(primoAvvio.equals("1")){
 
             //messaggio di caricamento primo avvio
             ProgressDialog dialog=new ProgressDialog(this);
@@ -81,35 +85,29 @@ public class Menu extends AppCompatActivity {
                     values);
             //./CARICO IL DATABASE###################################################
 
-            SharedPreferences.Editor editor = sharedPref.edit();
 
-            editor.putInt(getString(R.string.primo_avvio), 0);
-            editor.putInt(getString(R.string.livello_raggiunto), 1);
+            SharedPreferences.Editor editor = sharedPref.edit();
+            editor.putString("primoAvvio", "0");
+            editor.putInt("livelloRaggiunto",1);
             editor.commit();
 
             //tolgo messaggio di caricamento
             dialog.dismiss();
         }
 
-
-
-
-
-
-
-
-
     }
     public void avviaPartita(View view) {
 
-        this.sharedPref = getSharedPreferences(getString(R.string.livello_raggiunto), MODE_PRIVATE);
-        int defaultValue = 1;
-
-        this.livelloRaggiunto = sharedPref.getInt(getString(R.string.livello_raggiunto), defaultValue);
 
 
         Intent intent = new Intent(this, Partita.class);
         intent.putExtra("livello",livelloRaggiunto);
+        startActivity(intent);
+
+    }
+    public void avviaSelezionaLivello(View view) {
+
+        Intent intent = new Intent(this, SelezionaLivello.class);
         startActivity(intent);
 
     }

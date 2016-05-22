@@ -50,8 +50,8 @@ public class PaginaPartita {
         this.layoutBottoni = (TableLayout)a.findViewById(R.id.tabellaBottoni);
 
 
-        GestoreLivello gestore = new GestoreLivello();
-        livello = gestore.leggiLivello(a,numLivello);
+        GestoreLivello gestore = new GestoreLivello(a);
+        livello = gestore.leggiLivello(numLivello);
         this.esposto = livello.getEsposto();
         this.soluzione = livello.getSoluzione();
 
