@@ -11,6 +11,13 @@
     <string name="crediti">Crediti</string>
     <!-- ##########./MENU INIZIALE########################## -->
 
+    <!-- ##########CREDITI########################## -->
+    <string name="carmine_parisi">Carmine Parisi</string>
+    <string name="salvatore_chiariello">Salvatore Chiariello</string>
+    <string name="giuseppe_lorenzo_raimondo">Giuseppe Lorendo Raimondo</string>
+    <string name="autori">Autori</string>
+    <!-- ##########./CREDITI########################## -->
+
     <!-- ##########PARTITA########################## -->
 
     <string name="reset">reset</string>

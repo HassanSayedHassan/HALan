@@ -12,4 +12,34 @@
     android:background="@color/sfondo"
     tools:context="com.example.signo.halan.Credits">
 
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:text="@string/autori"
+        android:textColor="@color/bottoni"
+        android:textSize="@dimen/testo_enigma"/>
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:text="@string/salvatore_chiariello"
+        android:textColor="@color/testo_bottoni"/>
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:text="@string/carmine_parisi"
+        android:textColor="@color/testo_bottoni"/>
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:text="@string/giuseppe_lorenzo_raimondo"
+        android:textColor="@color/testo_bottoni"/>
+
 </LinearLayout>
