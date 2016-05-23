@@ -39,8 +39,9 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="@string/opzioni"
+        android:text="@string/crediti"
         android:background="@color/bottoni"
         android:textColor="@color/testo_bottoni"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="10dp"
+        android:onClick="avviaCrediti"/>
 </LinearLayout>

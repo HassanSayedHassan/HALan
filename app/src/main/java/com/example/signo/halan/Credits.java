@@ -9,9 +9,11 @@ public class Credits extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_credits);
-        //salvatore
+
+        //elimino la barra superiore
+        getSupportActionBar().hide();
     }
 
-    //Chiariello
+
 
 }

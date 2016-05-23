@@ -112,5 +112,11 @@ public class Menu extends AppCompatActivity {
 
     }
 
+    public void avviaCrediti(View view) {
+
+        Intent intent = new Intent(this, Credits.class);
+        startActivity(intent);
+
+    }
 
 }
