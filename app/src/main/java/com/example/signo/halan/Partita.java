@@ -1,6 +1,8 @@
 package com.example.signo.halan;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.DialogFragment;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
@@ -8,6 +10,7 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -25,6 +28,8 @@ public class Partita extends AppCompatActivity {
 
     private PaginaPartita partita;
     private int livelloRaggiunto;
+    private FragmentManager fm;
+    DialogLivelloSuperato livelloSuperato;
 
 
 
@@ -35,7 +40,9 @@ public class Partita extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
 
-
+        //Dialog del livello superato
+        fm = getSupportFragmentManager();
+        livelloSuperato = new DialogLivelloSuperato();
 
         Intent intent = getIntent();
         this.livelloRaggiunto = intent.getIntExtra("livello",1);
@@ -49,27 +56,28 @@ public class Partita extends AppCompatActivity {
 
         TextView[] l = partita.getSoluzioneInserita();
         Stringa stringa = new Stringa(partita.getSoluzione());
-        Dialog d=new Dialog(this);
+        //Dialog d=new Dialog(this);
+
 
         if(stringa.controlloRisultato(l) == 1) {
-            d.setTitle("Soluzione corretta");
+            //d.setTitle("Soluzione corretta");
+            livelloSuperato.show(fm,"");
 
+            //this.livelloRaggiunto++;
 
-            this.livelloRaggiunto++;
-
-            Intent intent = new Intent(this, Partita.class);
-            intent.putExtra("livello",livelloRaggiunto);
-            startActivity(intent);
+            //Intent intent = new Intent(this, Partita.class);
+            //intent.putExtra("livello",livelloRaggiunto);
+            //startActivity(intent);
 
 
 
         }
         else {
-            d.setTitle("Ritenta");
+            //d.setTitle("Ritenta");
 
         }
-        d.setCancelable(true);
-        d.show();
+        //d.setCancelable(true);
+        //d.show();
 
     }
     public void reset(View view){
