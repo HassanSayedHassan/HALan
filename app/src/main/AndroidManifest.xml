@@ -16,7 +16,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Partita" />
-        <activity android:name=".SelezionaLivello"></activity>
+        <activity android:name=".SelezionaLivello" />
+        <activity android:name=".Credits"></activity>
     </application>
 
 </manifest>
