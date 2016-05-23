@@ -40,12 +40,13 @@ public class Partita extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
 
-        //Dialog del livello superato
-        fm = getSupportFragmentManager();
-        livelloSuperato = new DialogLivelloSuperato();
-
         Intent intent = getIntent();
         this.livelloRaggiunto = intent.getIntExtra("livello",1);
+        Log.w("livello raggiunto",String.valueOf(livelloRaggiunto));
+
+        //Dialog del livello superato
+        fm = getSupportFragmentManager();
+        livelloSuperato = new DialogLivelloSuperato().newInstance(livelloRaggiunto);
 
         partita = new PaginaPartita(this,livelloRaggiunto);
         partita.disegnaPagina();

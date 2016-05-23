@@ -15,17 +15,23 @@ import android.view.View;
  */
 public class DialogLivelloSuperato extends DialogFragment {
 
-    private Context context;
+    private int livelloRaggiunto;
 
-    public void DialogLivelloSuperato(Context context){
+    public static DialogLivelloSuperato newInstance(int livelloRaggiunto) {
 
-        this.context = context;
+        DialogLivelloSuperato f = new DialogLivelloSuperato();
+
+        Bundle args = new Bundle();
+        args.putInt("livelloRaggiunto", livelloRaggiunto);
+        f.setArguments(args);
+        return f;
+
     }
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 
-
+        livelloRaggiunto = getArguments().getInt("livelloRaggiunto");
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
 
@@ -36,8 +42,9 @@ public class DialogLivelloSuperato extends DialogFragment {
                     public void onClick(DialogInterface dialog, int id) {
 
 
-                        Intent intent = new Intent(context, Partita.class);
-                        intent.putExtra("livello",2);
+                        Intent intent = new Intent(getActivity(), Partita.class);
+                        livelloRaggiunto++;
+                        intent.putExtra("livello",livelloRaggiunto);
                         startActivity(intent);
 
 
