@@ -30,6 +30,7 @@ public class Partita extends AppCompatActivity {
     private int livelloRaggiunto;
     private FragmentManager fm;
     DialogLivelloSuperato livelloSuperato;
+    DialogRitenta ritenta;
 
 
 
@@ -44,9 +45,10 @@ public class Partita extends AppCompatActivity {
         this.livelloRaggiunto = intent.getIntExtra("livello",1);
         Log.w("livello raggiunto",String.valueOf(livelloRaggiunto));
 
-        //Dialog del livello superato
+        //Dialog del livello superato e ritenta
         fm = getSupportFragmentManager();
         livelloSuperato = new DialogLivelloSuperato().newInstance(livelloRaggiunto);
+        ritenta = new DialogRitenta();
 
         partita = new PaginaPartita(this,livelloRaggiunto);
         partita.disegnaPagina();
@@ -75,6 +77,7 @@ public class Partita extends AppCompatActivity {
         }
         else {
             //d.setTitle("Ritenta");
+            ritenta.show(fm,"");
 
         }
         //d.setCancelable(true);

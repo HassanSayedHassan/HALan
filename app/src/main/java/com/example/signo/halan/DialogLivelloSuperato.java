@@ -38,6 +38,9 @@ public class DialogLivelloSuperato extends DialogFragment {
         // Inflate and set the layout for the dialog
         // Pass null as the parent view because its going in the dialog layout
         builder.setView(inflater.inflate(R.layout.dialog_livello_superato, null))
+
+
+
                 .setPositiveButton("Avanti", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
 
