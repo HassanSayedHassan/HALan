@@ -3,21 +3,24 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/sfondo">
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="ENIGMA RISOLTO"
-    android:layout_gravity="center"
-    android:textSize="30dp"
-    android:textColor="@color/bottoni"/>
-
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp"
+    android:background="@color/bottoni">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Puoi accedere al livello successivo"
-        android:layout_gravity="center"
-        android:textSize="25dp"
-        android:textColor="@color/testo_bottoni"/>
 
+        android:text="Enigma Risolto"
+        android:textColor="@color/testo_bottoni"
+        android:layout_gravity="center"
+        android:textSize="@dimen/testoDialogbig"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="accedi al livello successivo"
+        android:textColor="@color/testo_bottoni"
+        android:layout_gravity="center"
+        android:textSize="@dimen/testoDialogsmall"/>
 </LinearLayout>

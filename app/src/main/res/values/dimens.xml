@@ -8,5 +8,6 @@
     <dimen name="linea">2dp</dimen>
     <dimen name="spaziLinea">15dp</dimen>
     <dimen name="testoBottoni">10dp</dimen>
-    <dimen name="testoDialog">15dp</dimen>
+    <dimen name="testoDialogsmall">15dp</dimen>
+    <dimen name="testoDialogbig">22dp</dimen>
 </resources>

@@ -15,12 +15,12 @@
         android:text="Soluzione errata"
         android:textColor="@color/testo_bottoni"
         android:layout_gravity="center"
-        android:textSize="@dimen/testoDialog"/>
+        android:textSize="@dimen/testoDialogbig"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="prova con un'altra combinazione"
         android:textColor="@color/testo_bottoni"
         android:layout_gravity="center"
-        android:textSize="@dimen/testoDialog"/>
+        android:textSize="@dimen/testoDialogsmall"/>
 </LinearLayout>
