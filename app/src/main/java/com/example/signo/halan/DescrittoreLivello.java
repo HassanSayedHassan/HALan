@@ -9,6 +9,7 @@ public class DescrittoreLivello {
     private String esposto;
     private String soluzione;
     private String autore;
+    private String soluzione2;
 
     DescrittoreLivello(){
 
@@ -34,6 +35,9 @@ public class DescrittoreLivello {
         this.autore = autore;
 
     }
+    public void setSoluzione2(String soluzione2){
+        this.soluzione2 = soluzione2;
+    }
 
     public int getLivello(){
         return (livello);
@@ -48,6 +52,9 @@ public class DescrittoreLivello {
     public String getAutore(){
 
         return(autore);
+    }
+    public String getSoluzione2(){
+        return (soluzione2);
     }
 
 }

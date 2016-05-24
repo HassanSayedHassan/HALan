@@ -19,6 +19,22 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="cambiando la disposizione delle lettere ottieni:"
+        android:textColor="@color/testo_bottoni"
+        android:layout_gravity="center"
+        android:textSize="@dimen/testoDialogsmall"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enigma Risolto"
+        android:textColor="@color/testo_bottoni"
+        android:layout_gravity="center"
+        android:textSize="@dimen/testoDialogbig"
+        android:id="@+id/soluzione2"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="accedi al livello successivo"
         android:textColor="@color/testo_bottoni"
         android:layout_gravity="center"

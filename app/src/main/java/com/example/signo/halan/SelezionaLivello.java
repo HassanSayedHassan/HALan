@@ -2,6 +2,7 @@ package com.example.signo.halan;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.support.v7.app.AppCompatActivity;
@@ -29,6 +30,8 @@ public class SelezionaLivello extends AppCompatActivity {
     private Button[] b;
     TableRow.LayoutParams lp,lpB;
     Context c;
+    private SharedPreferences sharedPref;
+    private int livelloRaggiunto;
 
 
     @Override
@@ -63,6 +66,9 @@ public class SelezionaLivello extends AppCompatActivity {
         //ricavo la tabella dal layout
         tab = new TableLayout(this);
         tab = (TableLayout)findViewById(R.id.tabellaLivelli);
+
+        sharedPref = getSharedPreferences("preferenze",MODE_PRIVATE);
+        livelloRaggiunto = sharedPref.getInt("livelloRaggiunto",1);
 
 
         //ricavo il numero di livelli presenti nel database
@@ -101,6 +107,12 @@ public class SelezionaLivello extends AppCompatActivity {
             b[i].setText(String.valueOf(i+1));
             b[i].setTextColor(Color.parseColor("white"));
             b[i].setBackgroundResource(R.color.bottoni);
+            if((i+1)>livelloRaggiunto)
+            {
+
+                b[i].setEnabled(false);
+                b[i].setBackgroundResource(R.color.livelloNonSelezionato);
+            }
             r[j].addView(b[i],lpB);
             final int liv = i+1;
             Log.w("Livello",String.valueOf(liv));

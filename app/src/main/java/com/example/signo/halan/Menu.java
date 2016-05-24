@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class Menu extends AppCompatActivity {
 
@@ -62,8 +63,9 @@ public class Menu extends AppCompatActivity {
             // Create a new map of values, where column names are the keys
             ContentValues values = new ContentValues();
             values.put(LivelliContratto.Livelli.COLONNA_AUTORE, "PIPPO");
-            values.put(LivelliContratto.Livelli.COLONNA_ESPOSTO, "PRIMO ESPOSTO");
-            values.put(LivelliContratto.Livelli.COLONNA_SOLUZIONE, "PRIMA SOLUZIONE");
+            values.put(LivelliContratto.Livelli.COLONNA_ESPOSTO, "PISTA");
+            values.put(LivelliContratto.Livelli.COLONNA_SOLUZIONE, "COL PI DITE STA");
+            values.put(LivelliContratto.Livelli.COLONNA_SOLUZIONE2, "COLPI DI TESTA");
 
             // Insert the new row, returning the primary key value of the new row
             long newRowId;
@@ -75,8 +77,9 @@ public class Menu extends AppCompatActivity {
             // Create a new map of values, where column names are the keys
 
             values.put(LivelliContratto.Livelli.COLONNA_AUTORE, "PIPPO");
-            values.put(LivelliContratto.Livelli.COLONNA_ESPOSTO, "SECONDO ESPOSTO");
-            values.put(LivelliContratto.Livelli.COLONNA_SOLUZIONE, "SECONDA SOLUZIONE");
+            values.put(LivelliContratto.Livelli.COLONNA_ESPOSTO, "ROM.");
+            values.put(LivelliContratto.Livelli.COLONNA_SOLUZIONE, "A CREA ROMA");
+            values.put(LivelliContratto.Livelli.COLONNA_SOLUZIONE2, "ACRE AROMA");
 
             // Insert the new row, returning the primary key value of the new row
             newRowId = db.insert(
@@ -85,6 +88,19 @@ public class Menu extends AppCompatActivity {
                     values);
             //./CARICO IL DATABASE###################################################
 
+            // Create a new map of values, where column names are the keys
+
+            values.put(LivelliContratto.Livelli.COLONNA_AUTORE, "PIPPO");
+            values.put(LivelliContratto.Livelli.COLONNA_ESPOSTO, "BAS BES BIS BOS GAR");
+            values.put(LivelliContratto.Livelli.COLONNA_SOLUZIONE, "GAR E DIRE BUS");
+            values.put(LivelliContratto.Livelli.COLONNA_SOLUZIONE2, "GARE DI REBUS");
+
+            // Insert the new row, returning the primary key value of the new row
+            newRowId = db.insert(
+                    LivelliContratto.Livelli.TABELLA_NOME,
+                    null,
+                    values);
+            //./CARICO IL DATABASE###################################################
 
             SharedPreferences.Editor editor = sharedPref.edit();
             editor.putString("primoAvvio", "0");
@@ -93,6 +109,12 @@ public class Menu extends AppCompatActivity {
 
             //tolgo messaggio di caricamento
             dialog.dismiss();
+        }
+
+        if(livelloRaggiunto != 1)
+        {
+            TextView nuovaPartita = (TextView)findViewById(R.id.nuova_partita);
+            nuovaPartita.setText("CONTINUA");
         }
 
     }

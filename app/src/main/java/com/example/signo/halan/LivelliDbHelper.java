@@ -20,6 +20,7 @@ public class LivelliDbHelper extends SQLiteOpenHelper {
                     LivelliContratto.Livelli._ID + " INTEGER PRIMARY KEY," +
                     LivelliContratto.Livelli.COLONNA_ESPOSTO + TEXT_TYPE + VIRGOLA +
                     LivelliContratto.Livelli.COLONNA_SOLUZIONE + TEXT_TYPE + VIRGOLA +
+                    LivelliContratto.Livelli.COLONNA_SOLUZIONE2 + TEXT_TYPE + VIRGOLA +
                     LivelliContratto.Livelli.COLONNA_AUTORE + TEXT_TYPE +
                     " )";
 

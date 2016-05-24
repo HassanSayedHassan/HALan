@@ -21,6 +21,7 @@ public class PaginaPartita {
     private DescrittoreLivello livello;
     private String esposto;
     private String soluzione;
+    private String soluzione2;
     private int lunghezzaSoluzione;
     private int displayX,displayY;
     private int marginiX;
@@ -54,7 +55,7 @@ public class PaginaPartita {
         livello = gestore.leggiLivello(numLivello);
         this.esposto = livello.getEsposto();
         this.soluzione = livello.getSoluzione();
-
+        this.soluzione2 = livello.getSoluzione2();
         Display display = a.getWindowManager().getDefaultDisplay();
         Point size = new Point();
         display.getSize(size);

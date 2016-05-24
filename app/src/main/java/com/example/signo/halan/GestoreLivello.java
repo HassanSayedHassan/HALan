@@ -33,6 +33,7 @@ public class GestoreLivello {
                 LivelliContratto.Livelli._ID,
                 LivelliContratto.Livelli.COLONNA_ESPOSTO,
                 LivelliContratto.Livelli.COLONNA_SOLUZIONE,
+                LivelliContratto.Livelli.COLONNA_SOLUZIONE2,
                 LivelliContratto.Livelli.COLONNA_AUTORE
         };
 
@@ -56,12 +57,14 @@ public class GestoreLivello {
         String esposto = c.getString(c.getColumnIndexOrThrow(LivelliContratto.Livelli.COLONNA_ESPOSTO));
         String soluzione = c.getString(c.getColumnIndexOrThrow(LivelliContratto.Livelli.COLONNA_SOLUZIONE));
         String autore = c.getString(c.getColumnIndexOrThrow(LivelliContratto.Livelli.COLONNA_AUTORE));
+        String soluzione2 = c.getString(c.getColumnIndexOrThrow(LivelliContratto.Livelli.COLONNA_SOLUZIONE2));
         //./DATABASE####################################################################################################
 
         descrittore.setLivello(id);
         descrittore.setAutore(autore);
         descrittore.setEsposto(esposto);
         descrittore.setSoluzione(soluzione);
+        descrittore.setSoluzione2(soluzione2);
 
         return(descrittore);
     }

@@ -27,10 +27,11 @@ import android.widget.TextView;
 public class Partita extends AppCompatActivity {
 
     private PaginaPartita partita;
-    private int livelloRaggiunto;
+    private int livelloDisegnare;
     private FragmentManager fm;
     DialogLivelloSuperato livelloSuperato;
     DialogRitenta ritenta;
+    private SharedPreferences sharedPref;
 
 
 
@@ -42,15 +43,15 @@ public class Partita extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         Intent intent = getIntent();
-        this.livelloRaggiunto = intent.getIntExtra("livello",1);
-        Log.w("livello raggiunto",String.valueOf(livelloRaggiunto));
+        this.livelloDisegnare = intent.getIntExtra("livello",1);
+        Log.w("livello raggiunto",String.valueOf(livelloDisegnare));
 
         //Dialog del livello superato e ritenta
         fm = getSupportFragmentManager();
-        livelloSuperato = new DialogLivelloSuperato().newInstance(livelloRaggiunto);
+        livelloSuperato = new DialogLivelloSuperato().newInstance(livelloDisegnare);
         ritenta = new DialogRitenta();
 
-        partita = new PaginaPartita(this,livelloRaggiunto);
+        partita = new PaginaPartita(this,livelloDisegnare);
         partita.disegnaPagina();
 
 

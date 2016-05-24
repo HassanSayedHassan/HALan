@@ -24,5 +24,6 @@ public final class LivelliContratto {
         public static final String COLONNA_ESPOSTO = "esposto";
         public static final String COLONNA_SOLUZIONE = "soluzione";
         public static final String COLONNA_AUTORE = "autore";
+        public static final String COLONNA_SOLUZIONE2 = "soluzione2";
     }
 }
