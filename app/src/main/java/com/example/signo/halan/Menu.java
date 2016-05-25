@@ -22,6 +22,8 @@ public class Menu extends AppCompatActivity {
     private SharedPreferences sharedPref;
     private int livelloRaggiunto;
     String primoAvvio;
+    GestoreLivello gestore;
+    int numeroTotLivelli;
 
 
 
@@ -43,6 +45,9 @@ public class Menu extends AppCompatActivity {
         sharedPref = getSharedPreferences("preferenze",MODE_PRIVATE);
         primoAvvio = sharedPref.getString("primoAvvio","1");
         livelloRaggiunto = sharedPref.getInt("livelloRaggiunto",1);
+        //setto il numero totale di livelli presenti
+        gestore = new GestoreLivello(this);
+        numeroTotLivelli = gestore.getNumeroLivelli();
 
         Log.w("primo avvio",primoAvvio);
 
@@ -112,11 +117,19 @@ public class Menu extends AppCompatActivity {
             //tolgo messaggio di caricamento
             dialog.dismiss();
         }
+        TextView nuovaPartita = (TextView)findViewById(R.id.nuova_partita);
 
         if(livelloRaggiunto != 1)
         {
-            TextView nuovaPartita = (TextView)findViewById(R.id.nuova_partita);
+
             nuovaPartita.setText("CONTINUA");
+        }
+        Log.w("Numero tot livelli",String.valueOf(numeroTotLivelli));
+        Log.w("Livello raggiunto",String.valueOf(livelloRaggiunto));
+        if(livelloRaggiunto >= numeroTotLivelli)
+        {
+            nuovaPartita.setEnabled(false);
+            nuovaPartita.setBackgroundResource(R.color.livelloNonSelezionato);
         }
 
     }
