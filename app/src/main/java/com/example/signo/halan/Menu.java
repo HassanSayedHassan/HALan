@@ -3,11 +3,13 @@ package com.example.signo.halan;
 import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -139,6 +141,19 @@ public class Menu extends AppCompatActivity {
         Intent intent = new Intent(this, Credits.class);
         startActivity(intent);
 
+    }
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setTitle("Vuoi Uscire?")
+                .setMessage("Sei sicuro di voler uscire dall'applicazione?")
+                .setNegativeButton(android.R.string.no, null)
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        Menu.super.onBackPressed();
+                    }
+                }).create().show();
     }
 
 }

@@ -1,5 +1,6 @@
 package com.example.signo.halan;
 
+import android.content.Intent;
 import android.graphics.Point;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Display;
@@ -10,6 +11,9 @@ import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+
+import static android.support.v4.app.ActivityCompat.startActivity;
+
 /**
  * Created by signo on 14/05/2016.
  * Classe che stampa la pagina della partita corrente
@@ -242,7 +246,6 @@ public class PaginaPartita {
         }
 
     }
-
 
 
 }

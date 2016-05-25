@@ -90,4 +90,9 @@ public class Partita extends AppCompatActivity {
         partita.resetLivello();
 
     }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, Menu.class);
+        startActivity(intent);
+    }
 }
