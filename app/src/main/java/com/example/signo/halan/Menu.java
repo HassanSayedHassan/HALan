@@ -115,11 +115,13 @@ public class Menu extends AppCompatActivity {
             //tolgo messaggio di caricamento
             dialog.dismiss();
 
-            //ricavo il numero totale di livelli, lo faccio subito dopo averli caricati
-            gestore = new GestoreLivello(this);
-            numeroTotLivelli = gestore.getNumeroLivelli();
+
 
         }
+        //ricavo il numero totale di livelli, lo faccio subito dopo averli caricati
+        gestore = new GestoreLivello(this);
+        numeroTotLivelli = gestore.getNumeroLivelli();
+
         TextView nuovaPartita = (TextView)findViewById(R.id.nuova_partita);
 
         if(livelloRaggiunto != 1)
