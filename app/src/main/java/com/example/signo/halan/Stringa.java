@@ -93,23 +93,23 @@ public class Stringa {
         numerolivelli = Integer.parseInt(String.valueOf(stringaSplitted[0]));
 
         risposta.setLivelli(numerolivelli);
-
+        //ciclo per le righe del database count=riga corrente numerolivelli=righe tot
         for (count = 0; count< numerolivelli; count++) {
+            //k variabile di stato K=1 autore, k=2 esposto...
 
-            k = 1;
-
+            //ciclo per scorrere la stringa
             for (int i = 1; i < stringa.length(); i++) {
 
                 chr = String.valueOf(stringaSplitted[i]);
                 Log.w("stringa",chr);
-
+                //controllo caratteri
                 if (!chr.equals("@")) {
-
+                    //stringa di appoggio contiene momentaneamente la parola
                     temp[j] = stringaSplitted[i];
                     j++;
                 }
                     else {
-
+                    //parola terminata la devo scrivere in descrittorelivello
                     j = 0;
 
                     str = String.valueOf(temp);
@@ -129,12 +129,15 @@ public class Stringa {
                             risposta.setSoluzione2(str, count);
                             break;
                     }
+                    //la prossima parola sarà esposto
                     k++;
                 }
 
 
             }
+            // dopo che k=4 devo ricominciare
             count++;
+            k=1;
         }
 
 
