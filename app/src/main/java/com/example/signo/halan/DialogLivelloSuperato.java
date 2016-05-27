@@ -92,7 +92,6 @@ public class DialogLivelloSuperato extends DialogFragment {
                         else
                         {
                             Intent intent = new Intent(getActivity(), Menu.class);
-
                             startActivity(intent);
 
                         }

@@ -21,6 +21,7 @@ public class Menu extends AppCompatActivity {
 
     private SharedPreferences sharedPref;
     private int livelloRaggiunto;
+    private ThreadImportaLivelli thread;
     String primoAvvio;
     GestoreLivello gestore;
     int numeroTotLivelli;
@@ -37,28 +38,20 @@ public class Menu extends AppCompatActivity {
         actionBar.hide();
         //##########################################
 
-
-
         Context context = this;
-
 
         sharedPref = getSharedPreferences("preferenze",MODE_PRIVATE);
         primoAvvio = sharedPref.getString("primoAvvio","1");
         livelloRaggiunto = sharedPref.getInt("livelloRaggiunto",1);
-        //setto il numero totale di livelli presenti
 
-        Log.w("primo avvio",primoAvvio);
+        Log.w("Livello Raggiunto",String.valueOf(livelloRaggiunto));
 
-        //SOLO SE è IL PRIMO AVVIO CARICO IL DATABASE CON I LIVELLI
+
+        // SOLO SE è IL PRIMO AVVIO CARICO IL DATABASE CON I LIVELLI
+
         if(primoAvvio.equals("1")){
 
-            //messaggio di caricamento primo avvio
-            ProgressDialog dialog=new ProgressDialog(this);
-            dialog.setMessage("Caricamento");
-            dialog.setCancelable(false);
-            dialog.setInverseBackgroundForced(false);
-            dialog.show();
-            //./messaggio di caricamento primo avvio
+
 
 
             //CARICO IL DATABASE#####################################################
@@ -79,35 +72,7 @@ public class Menu extends AppCompatActivity {
                     null,
                     values);
 
-            // Create a new map of values, where column names are the keys
 
-            values.put(LivelliContratto.Livelli.COLONNA_AUTORE, "PIPPO");
-            values.put(LivelliContratto.Livelli.COLONNA_ESPOSTO, "ROM.");
-            values.put(LivelliContratto.Livelli.COLONNA_SOLUZIONE, "A CREA ROMA");
-            values.put(LivelliContratto.Livelli.COLONNA_SOLUZIONE2, "ACRE AROMA");
-
-            // Insert the new row, returning the primary key value of the new row
-            newRowId = db.insert(
-                    LivelliContratto.Livelli.TABELLA_NOME,
-                    null,
-                    values);
-            //./CARICO IL DATABASE###################################################
-
-            // Create a new map of values, where column names are the keys
-
-            values.put(LivelliContratto.Livelli.COLONNA_AUTORE, "PIPPO");
-            values.put(LivelliContratto.Livelli.COLONNA_ESPOSTO, "BAS BES BIS BOS GAR");
-            values.put(LivelliContratto.Livelli.COLONNA_SOLUZIONE, "GAR E DIRE BUS");
-            values.put(LivelliContratto.Livelli.COLONNA_SOLUZIONE2, "GARE DI REBUS");
-
-            // Insert the new row, returning the primary key value of the new row
-            newRowId = db.insert(
-                    LivelliContratto.Livelli.TABELLA_NOME,
-                    null,
-                    values);
-            //./CARICO IL DATABASE###################################################
-
-           // mDbHelper.inserisciLivello();
 
             SharedPreferences.Editor editor = sharedPref.edit();
             editor.putString("primoAvvio", "0");
@@ -116,27 +81,27 @@ public class Menu extends AppCompatActivity {
 
 
 
-            //tolgo messaggio di caricamento
-            dialog.dismiss();
-
-
-
         }
-        //ricavo il numero totale di livelli, lo faccio subito dopo averli caricati
+
+        //ricavo il numero totale di livelli
         gestore = new GestoreLivello(this);
         numeroTotLivelli = gestore.getNumeroLivelli();
+        //faccio partire il thread che aggiunge i nuovi livelli ricavati dal server
+        View v = getWindow().getDecorView().getRootView();
 
+        thread = new ThreadImportaLivelli(this,v);
+        thread.execute(Integer.toString(numeroTotLivelli));
+
+
+        //#########################################################################
+        //Setto il nome del primo pulsante in nuova partita o continua
         TextView nuovaPartita = (TextView)findViewById(R.id.nuova_partita);
-
         if(livelloRaggiunto != 1)
         {
-
+            nuovaPartita.setEnabled(true);
             nuovaPartita.setText("CONTINUA");
         }
-        Log.w("Numero tot livelli",String.valueOf(numeroTotLivelli));
-        Log.w("Livello raggiunto",String.valueOf(livelloRaggiunto));
-
-        if(livelloRaggiunto >= numeroTotLivelli)
+        if(livelloRaggiunto > numeroTotLivelli)
         {
             nuovaPartita.setEnabled(false);
             nuovaPartita.setBackgroundResource(R.color.livelloNonSelezionato);
@@ -145,25 +110,18 @@ public class Menu extends AppCompatActivity {
     }
     public void avviaPartita(View view) {
 
-
-
         Intent intent = new Intent(this, Partita.class);
         intent.putExtra("livello",livelloRaggiunto);
         startActivity(intent);
-
     }
     public void avviaSelezionaLivello(View view) {
-
         Intent intent = new Intent(this, SelezionaLivello.class);
         startActivity(intent);
-
     }
 
     public void avviaCrediti(View view) {
-
         Intent intent = new Intent(this, Credits.class);
         startActivity(intent);
-
     }
     @Override
     public void onBackPressed() {

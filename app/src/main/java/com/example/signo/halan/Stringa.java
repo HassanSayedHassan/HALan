@@ -78,8 +78,8 @@ public class Stringa {
         return 1;
     }
 
-    public DescrittoreLivelloServer splitRisposta(String stringa){
-
+    public DescrittoreLivelloServer splitRisposta(){
+        /*
         int numerolivelli;
         int count=0, j=0, k=1;
         char[] temp = new char[100];
@@ -139,6 +139,33 @@ public class Stringa {
 
 
         return risposta;
+        */
+
+        int livelliDaAggiungere;
+        //splitto la string con tappo @
+        String[] splitted = stringa.split("@");
+        //ricavo i livelli da aggiungere
+
+        livelliDaAggiungere = (int)Integer.parseInt(String.valueOf(splitted[0]));
+        //oggetto che contiene informazioni sui livelli da aggiungere
+        DescrittoreLivelloServer descrittore = new DescrittoreLivelloServer(livelliDaAggiungere);
+
+        int indice = 1;
+        for(int i=0;i<livelliDaAggiungere;i++){
+
+            descrittore.setAutore(splitted[indice],i);
+            indice++;
+            descrittore.setEsposto(splitted[indice],i);
+            indice++;
+            descrittore.setSoluzione(splitted[indice],i);
+            indice++;
+            descrittore.setSoluzione2(splitted[indice],i);
+            indice++;
+
+        }
+
+        return descrittore;
+
     }
 }
 

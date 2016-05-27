@@ -22,16 +22,20 @@ public class Credits extends AppCompatActivity {
         //elimino la barra superiore
         getSupportActionBar().hide();
 
-        Stringa str = new Stringa("3autore1@esposto1@soluzione1@soluzione2@autore2@esposto2@soluzione1@soluzione2@pluto@espostopluto@ciaoatutti@atutticiao@");
 
-        risposta = str.splitRisposta("3autore1@esposto1@soluzione1@soluzione2@autore2@esposto2@soluzione1@soluzione2@pluto@espostopluto@ciaoatutti@atutticiao@");
+        Stringa str = new Stringa("3@autore1@esposto1@soluzione1@soluzione2@autore2@esposto2@soluzione1@soluzione2@pluto@espostopluto@ciaoatutti@atutticiao@");
 
-       risultato = risposta.getLivelli();
+        //risposta = str.splitRisposta("3autore1@esposto1@soluzione1@soluzione2@autore2@esposto2@soluzione1@soluzione2@pluto@espostopluto@ciaoatutti@atutticiao@");
+
+        risposta = str.splitRisposta();
+
         autore = risposta.getAutore();
-        Log.w("risultato", Integer.toString(risultato));
-        Log.w("autore", autore[0]);
-        //Log.w("soluzione1",soluzione1[0]);
-        Log.w("autore", autore[1]);
+        Log.w("Autore",autore[0]);
+
+
+
+
+
     }
 
 
