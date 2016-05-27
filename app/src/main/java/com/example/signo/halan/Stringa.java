@@ -81,27 +81,28 @@ public class Stringa {
     public DescrittoreLivelloServer splitRisposta(String stringa){
 
         int numerolivelli;
-        int count=0, j=0, k=0;
-        char[] temp = new char[0];
+        int count=0, j=0, k=1;
+        char[] temp = new char[100];
         String chr, str;
 
         risposta = new DescrittoreLivelloServer();
         this.stringa = stringa;
 
         char[] stringaSplitted = stringa.toCharArray();
+        Log.w("stringa", String.valueOf(stringaSplitted[0]));
+        numerolivelli = Integer.parseInt(String.valueOf(stringaSplitted[0]));
 
-        numerolivelli = (int)(stringaSplitted[0]);
         risposta.setLivelli(numerolivelli);
 
         for (count = 0; count< numerolivelli; count++) {
 
-            k = 0;
+            k = 1;
 
             for (int i = 1; i < stringa.length(); i++) {
 
                 chr = String.valueOf(stringaSplitted[i]);
 
-                if (!chr.equals("tappo")) {
+                if (!chr.equals("@")) {
 
                     temp[j] = stringaSplitted[i];
                     j++;
@@ -124,6 +125,7 @@ public class Stringa {
                             break;
                         case 4:
                             risposta.setSoluzione2(str, count);
+                            break;
                     }
                     k++;
                 }
