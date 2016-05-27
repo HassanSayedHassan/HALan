@@ -107,10 +107,14 @@ public class Menu extends AppCompatActivity {
                     values);
             //./CARICO IL DATABASE###################################################
 
+            mDbHelper.inserisciLivello();
+
             SharedPreferences.Editor editor = sharedPref.edit();
             editor.putString("primoAvvio", "0");
             editor.putInt("livelloRaggiunto",1);
             editor.commit();
+
+
 
             //tolgo messaggio di caricamento
             dialog.dismiss();
