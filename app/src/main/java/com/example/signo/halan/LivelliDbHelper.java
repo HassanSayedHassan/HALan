@@ -1,5 +1,6 @@
 package com.example.signo.halan;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -42,4 +43,30 @@ public class LivelliDbHelper extends SQLiteOpenHelper {
     public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         onUpgrade(db, oldVersion, newVersion);
     }
+
+    public void inserisciLivello(String autore, String esposto, String soluzione1, String soluzione2){
+
+
+        //CARICO IL DATABASE#####################################################
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        // Create a new map of values, where column names are the keys
+        ContentValues values = new ContentValues();
+        values.put(LivelliContratto.Livelli.COLONNA_AUTORE, autore);
+        values.put(LivelliContratto.Livelli.COLONNA_ESPOSTO, esposto);
+        values.put(LivelliContratto.Livelli.COLONNA_SOLUZIONE, soluzione1);
+        values.put(LivelliContratto.Livelli.COLONNA_SOLUZIONE2, soluzione2);
+
+        // Insert the new row, returning the primary key value of the new row
+        long newRowId;
+        newRowId = db.insert(
+                LivelliContratto.Livelli.TABELLA_NOME,
+                null,
+                values);
+
+
+
+    }
+
 }
