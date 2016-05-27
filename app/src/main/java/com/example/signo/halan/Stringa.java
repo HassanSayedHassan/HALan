@@ -82,7 +82,7 @@ public class Stringa {
 
         int numerolivelli;
         int count=0, j=0, k=0;
-        char[] temp;
+        char[] temp = new char[0];
         String chr, str;
 
         risposta = new DescrittoreLivelloServer();
@@ -95,7 +95,7 @@ public class Stringa {
 
         for (count = 0; count< numerolivelli; count++) {
 
-            int k = 0;
+            k = 0;
 
             for (int i = 1; i < stringa.length(); i++) {
 
@@ -108,7 +108,7 @@ public class Stringa {
                 }
                     else {
 
-                    int j = 0;
+                    j = 0;
 
                     str = temp.toString();
 
