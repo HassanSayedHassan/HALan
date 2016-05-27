@@ -6,10 +6,10 @@ package com.example.signo.halan;
 public class DescrittoreLivelloServer {
 
     private int numerolivelli;
-    private String[] esposto = new String[100];
-    private String[] soluzione= new String[100];
-    private String[] autore = new String [100];
-    private String[] soluzione2 =new String [100];
+    private String[] esposto = new String[200];
+    private String[] soluzione = new String[200];
+    private String[] autore = new String[200];
+    private String[] soluzione2 = new String[200];
     private int i=0;
 
     DescrittoreLivelloServer(){

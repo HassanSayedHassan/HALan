@@ -101,6 +101,7 @@ public class Stringa {
             for (int i = 1; i < stringa.length(); i++) {
 
                 chr = String.valueOf(stringaSplitted[i]);
+                Log.w("stringa",chr);
 
                 if (!chr.equals("@")) {
 
@@ -111,8 +112,9 @@ public class Stringa {
 
                     j = 0;
 
-                    str = temp.toString();
+                    str = String.valueOf(temp);
 
+                    Log.w("temp", str);
                     switch (k) {
                         case 1:
                             risposta.setAutore(str, count);

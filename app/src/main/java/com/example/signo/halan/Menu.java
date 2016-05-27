@@ -107,7 +107,7 @@ public class Menu extends AppCompatActivity {
                     values);
             //./CARICO IL DATABASE###################################################
 
-            mDbHelper.inserisciLivello();
+           // mDbHelper.inserisciLivello();
 
             SharedPreferences.Editor editor = sharedPref.edit();
             editor.putString("primoAvvio", "0");

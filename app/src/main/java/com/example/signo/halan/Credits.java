@@ -10,6 +10,9 @@ public class Credits extends AppCompatActivity {
     private DescrittoreLivelloServer risposta;
     private int risultato;
     private String[] autore;
+    private String[] esposto;
+    private String[] soluzione1;
+    private String[] soluzione2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +30,8 @@ public class Credits extends AppCompatActivity {
         autore = risposta.getAutore();
         Log.w("risultato", Integer.toString(risultato));
         Log.w("autore", autore[0]);
-
+        //Log.w("soluzione1",soluzione1[0]);
+        Log.w("autore", autore[1]);
     }
 
 
