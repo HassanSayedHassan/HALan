@@ -46,8 +46,6 @@ public class Menu extends AppCompatActivity {
         primoAvvio = sharedPref.getString("primoAvvio","1");
         livelloRaggiunto = sharedPref.getInt("livelloRaggiunto",1);
         //setto il numero totale di livelli presenti
-        gestore = new GestoreLivello(this);
-        numeroTotLivelli = gestore.getNumeroLivelli();
 
         Log.w("primo avvio",primoAvvio);
 
@@ -116,7 +114,14 @@ public class Menu extends AppCompatActivity {
 
             //tolgo messaggio di caricamento
             dialog.dismiss();
+
+
+
         }
+        //ricavo il numero totale di livelli, lo faccio subito dopo averli caricati
+        gestore = new GestoreLivello(this);
+        numeroTotLivelli = gestore.getNumeroLivelli();
+
         TextView nuovaPartita = (TextView)findViewById(R.id.nuova_partita);
 
         if(livelloRaggiunto != 1)
@@ -126,6 +131,7 @@ public class Menu extends AppCompatActivity {
         }
         Log.w("Numero tot livelli",String.valueOf(numeroTotLivelli));
         Log.w("Livello raggiunto",String.valueOf(livelloRaggiunto));
+
         if(livelloRaggiunto >= numeroTotLivelli)
         {
             nuovaPartita.setEnabled(false);
