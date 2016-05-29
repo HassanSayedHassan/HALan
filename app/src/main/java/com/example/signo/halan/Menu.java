@@ -56,22 +56,7 @@ public class Menu extends AppCompatActivity {
 
             //CARICO IL DATABASE#####################################################
             LivelliDbHelper mDbHelper = new LivelliDbHelper(this);
-            SQLiteDatabase db = mDbHelper.getWritableDatabase();
-
-            // Create a new map of values, where column names are the keys
-            ContentValues values = new ContentValues();
-            values.put(LivelliContratto.Livelli.COLONNA_AUTORE, "PIPPO");
-            values.put(LivelliContratto.Livelli.COLONNA_ESPOSTO, "PISTA");
-            values.put(LivelliContratto.Livelli.COLONNA_SOLUZIONE, "COL PI DITE STA");
-            values.put(LivelliContratto.Livelli.COLONNA_SOLUZIONE2, "COLPI DI TESTA");
-
-            // Insert the new row, returning the primary key value of the new row
-            long newRowId;
-            newRowId = db.insert(
-                    LivelliContratto.Livelli.TABELLA_NOME,
-                    null,
-                    values);
-
+            mDbHelper.inserisciLivello("Il Lupino","GELSO","S TOLTA GELO SI À","STOLTA GELOSIA");
 
 
             SharedPreferences.Editor editor = sharedPref.edit();
