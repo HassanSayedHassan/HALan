@@ -110,16 +110,19 @@ public class Menu extends AppCompatActivity {
     }
     @Override
     public void onBackPressed() {
-        new AlertDialog.Builder(this)
-                .setTitle("Vuoi Uscire?")
-                .setMessage("Sei sicuro di voler uscire dall'applicazione?")
-                .setNegativeButton(android.R.string.no, null)
-                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+        new AlertDialog.Builder(this).setIcon(android.R.drawable.ic_dialog_alert).setTitle("Esci")
+                .setMessage("Sei sicuro di voler uscire?")
+                .setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
 
-                    public void onClick(DialogInterface arg0, int arg1) {
-                        Menu.super.onBackPressed();
+                        Intent intent = new Intent(Intent.ACTION_MAIN);
+                        intent.addCategory(Intent.CATEGORY_HOME);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent);
+                        finish();
                     }
-                }).create().show();
+                }).setNegativeButton("No", null).show();
     }
 
 }
