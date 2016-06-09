@@ -142,6 +142,7 @@ public class ThreadImportaLivelli extends AsyncTask<String,Void,String> {
         numeroTotLivelli = gestore.getNumeroLivelli();
         TextView nuovaPartita = (TextView)v.findViewById(R.id.nuova_partita);
 
+        //Se avevo completato il gioco ed ora aggiungo nuovi livelli, mi sblocca il tasto continua
         if(livelloRaggiunto <= numeroTotLivelli)
         {
             nuovaPartita.setEnabled(true);
